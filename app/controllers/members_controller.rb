@@ -1,6 +1,8 @@
 class MembersController < ApplicationController
-
     before_action :set_member, only: [:show, :update, :destroy]
+
+    wrap_parameters :member, include: [:first_name, :last_name, :username, :email, :password, :image, :family_size, :address]
+
     # skip_before_action :logged_in?, only: [:index, :show, :create]
 
   # GET /members
@@ -17,16 +19,16 @@ class MembersController < ApplicationController
 
   # POST /members
   def create
-    @member = Member.new(member_params)
+    # byebug
+    member = Member.new(member_params)
 
-    @member.save
-
-    # if @member.save
-      render json: @member, status: :created, location: @member
-    # else
-      # render json: @member.errors, status: :unprocessable_entity
-    # end
+    if member.save
+      render json: member, status: :created, location: member
+    else
+      render json: member.errors, status: :unprocessable_entity
+    end
   end
+
 
   # PATCH/PUT /members/1
   def update

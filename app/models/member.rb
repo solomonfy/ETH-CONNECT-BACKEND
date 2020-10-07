@@ -2,7 +2,7 @@ class Member < ApplicationRecord
 
     has_secure_password
 
-    # validates :first_name, :last_name, :username, :email, presence: { message: "%{value} must can't be empty" }
+    # validates :first_name, :last_name, :username, :email, presence: true
     # validates :email, uniqueness: { case_sensitive: false }
     # validates :username, uniqueness: { case_sensitive: false }
 
