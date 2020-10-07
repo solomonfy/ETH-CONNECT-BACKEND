@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_06_193248) do
+ActiveRecord::Schema.define(version: 2020_10_07_180636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,26 +23,18 @@ ActiveRecord::Schema.define(version: 2020_10_06_193248) do
   end
 
   create_table "events", force: :cascade do |t|
+    t.integer "host_id"
     t.string "name"
     t.text "description"
     t.date "date"
     t.string "location"
     t.string "event_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "eventsummaries", force: :cascade do |t|
-    t.string "description"
-    t.string "image"
-    t.integer "event_id"
-    t.integer "member_id"
+    t.text "summary"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "invitations", force: :cascade do |t|
-    t.integer "host_id"
     t.integer "attendee_id"
     t.integer "event_id"
     t.datetime "created_at", precision: 6, null: false
@@ -54,17 +46,18 @@ ActiveRecord::Schema.define(version: 2020_10_06_193248) do
     t.string "last_name"
     t.string "username"
     t.string "email"
-    t.string "image"
     t.string "password_digest"
+    t.string "image"
     t.integer "family_size"
+    t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reviews", force: :cascade do |t|
     t.string "description"
-    t.integer "event_id"
     t.integer "attendee_id"
+    t.integer "event_id"
     t.integer "likes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

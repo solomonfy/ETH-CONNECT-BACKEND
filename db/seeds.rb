@@ -7,12 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Announcement.destroy_all
+# Announcement.destroy_all
 Event.destroy_all
-Eventsummary.destroy_all
 Invitation.destroy_all
 Member.destroy_all
-Review.destroy_all
+# Review.destroy_all
 
 
 sol = Member.create(
@@ -22,7 +21,8 @@ sol = Member.create(
     email: "solomon@email.com", 
     password: "solomon", 
     family_size: 4,
-    image: ""
+    image: "",
+    address: ""
 )
 
 bk = Member.create(
@@ -32,7 +32,8 @@ bk = Member.create(
     email: "bk@email.com", 
     password: "bk", 
     family_size: 5,
-    image: ""
+    image: "",
+    address: ""
 )
 
 der = Member.create(
@@ -42,7 +43,8 @@ der = Member.create(
     email: "der@email.com", 
     password: "der", 
     family_size: 5,
-    image: ""
+    image: "",
+    address: ""
 )
 
 
@@ -54,51 +56,64 @@ der = Member.create(
     email: Faker::Internet.unique.email, 
     password: "test", 
     family_size: 5,
-    image: ""
+    image: "",
+    address: ""
 )
 end
 
 event1 = Event.create(
+    host: der,
     name: "Christmas", date: "", 
     location: Faker::Address.full_address, 
     event_type: "holyday",
-    description: Faker::Lorem.paragraph(sentence_count: 2)
+    description: Faker::Lorem.paragraph(sentence_count: 2),
+    summary: ""
 )
+
+
 event2 = Event.create(
+    host: bk,
     name: "New year", 
     date: "", 
     location: Faker::Address.full_address, 
     event_type: "holyday",
-    description: Faker::Lorem.paragraph(sentence_count: 2)
+    description: Faker::Lorem.paragraph(sentence_count: 2),
+    summary: ""
 )
 
-Invitation.create(host: der, attendee: Member.first, event: event1)
-Invitation.create(host: der, attendee: Member.second, event: event1)
-Invitation.create(host: der, attendee: Member.all[11], event: event1)
-Invitation.create(host: der, attendee: Member.fourth, event: event1)
-Invitation.create(host: bk, attendee: Member.first, event: event2)
-Invitation.create(host: bk, attendee: Member.all[10], event: event2)
+event3 = Event.create(
+    host: der,
+    name: "Fasika", date: "", 
+    location: Faker::Address.full_address, 
+    event_type: "holyday",
+    description: Faker::Lorem.paragraph(sentence_count: 2),
+    summary: ""
+)
+
+Invitation.create(attendee: Member.first, event: event1)
+Invitation.create(attendee: Member.second, event: event1)
+Invitation.create(attendee: Member.all[11], event: event1)
+Invitation.create(attendee: Member.fourth, event: event2)
+Invitation.create(attendee: Member.first, event: event2)
+Invitation.create(attendee: Member.all[10], event: event2)
+Invitation.create(attendee: Member.all[8], event: event3)
+Invitation.create(attendee: Member.all[5], event: event3)
+Invitation.create(attendee: Member.all[6], event: event3)
 
 
-10.times do
-    Announcement.create(
-        description: Faker::Lorem.paragraph(sentence_count: 5), 
-        member: Member.all.sample)
-end
+# 10.times do
+#     Announcement.create(
+#         description: Faker::Lorem.paragraph(sentence_count: 5), 
+#         member: Member.all.sample)
+# end
 
-10.times do
-    Eventsummary.create(
-        description: Faker::Lorem.paragraph(sentence_count: 5), 
-        event: event1, 
-        member_id: Member.all.sample)
-end
 
-10.times do
-    Review.create(
-        description: Faker::Lorem.paragraph(sentence_count: 5), 
-        event: event2, 
-        attendee_id: Member.all.sample,
-        likes: Faker::Number.within(range: 1..10))
-end
+# 10.times do
+#     Review.create(
+#         description: Faker::Lorem.paragraph(sentence_count: 5), 
+#         event: event2, 
+#         attendee_id: Member.all.sample,
+#         likes: Faker::Number.within(range: 1..10))
+# end
 
 
