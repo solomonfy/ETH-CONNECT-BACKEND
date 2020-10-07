@@ -20,7 +20,7 @@ sol = Member.create(
     last_name: "Sol", 
     username: "solomon", 
     email: "solomon@email.com", 
-    password_digest: "solomon", 
+    password: "solomon", 
     family_size: 4,
     image: ""
 )
@@ -30,7 +30,7 @@ bk = Member.create(
     last_name: "T", 
     username: "bk", 
     email: "bk@email.com", 
-    password_digest: "bk", 
+    password: "bk", 
     family_size: 5,
     image: ""
 )
@@ -40,7 +40,7 @@ der = Member.create(
     last_name: "T", 
     username: "der", 
     email: "der@email.com", 
-    password_digest: "der", 
+    password: "der", 
     family_size: 5,
     image: ""
 )
@@ -52,7 +52,7 @@ der = Member.create(
     last_name: Faker::Name.unique.last_name , 
     username: Faker::Internet.username(specifier: 3...5), 
     email: Faker::Internet.unique.email, 
-    password_digest: "test", 
+    password: "test", 
     family_size: 5,
     image: ""
 )

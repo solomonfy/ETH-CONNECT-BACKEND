@@ -1,5 +1,5 @@
 class Member < ApplicationRecord
-    # has_secure_password
+    has_secure_password
 
     has_many :attendee_invitations, foreign_key: :host_id, class_name: 'Invitation'
     has_many :attendees, through: :attendee_invitations
