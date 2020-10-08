@@ -1,5 +1,7 @@
 class AnnouncementsController < ApplicationController
   before_action :set_announcement, only: [:show, :update, :destroy]
+  skip_before_action :logged_in?, only: [:index, :show]
+
 
   # GET /announcements
   def index

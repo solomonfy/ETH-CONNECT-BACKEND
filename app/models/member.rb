@@ -2,9 +2,9 @@ class Member < ApplicationRecord
 
     has_secure_password
 
-    # validates :first_name, :last_name, :username, :email, presence: true
-    # validates :email, uniqueness: { case_sensitive: false }
-    # validates :username, uniqueness: { case_sensitive: false }
+    validates :first_name, :last_name, :username, :email, presence: true
+    validates :email, uniqueness: { case_sensitive: false }
+    validates :username, uniqueness: { case_sensitive: false }
 
 
     has_many :hosting_events, foreign_key: :host_id, class_name: "Event"

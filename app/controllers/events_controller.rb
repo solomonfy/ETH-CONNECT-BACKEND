@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
 
     before_action :set_event, only: [:show, :update, :destroy]
+    skip_before_action :logged_in?, only: [:index, :show]
+
 
     # GET /events
     def index
