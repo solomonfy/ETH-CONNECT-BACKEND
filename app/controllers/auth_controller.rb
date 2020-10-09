@@ -12,7 +12,7 @@ class AuthController < ApplicationController
         if member && member.authenticate(params[:member][:password])
         # byebug
 
-            render json: {username: member.username, image: member.image, email: member.email, token: encode_token({member_id: member.id})}, status: 200
+            render json: {id: member.id, image: member.image, email: member.email, token: encode_token({member_id: member.id})}, status: 200
         else
             render json: {error: "Invalid username or password"}
         end

@@ -1,9 +1,8 @@
 class MembersController < ApplicationController
     before_action :set_member, only: [:show, :update, :destroy]
-
     wrap_parameters :member, include: [:first_name, :last_name, :username, :email, :password, :image, :family_size, :address]
-
     skip_before_action :logged_in?, only: [:index, :show, :create]
+    # skip_before_action :logged_in?, only: [:create]
 
   # GET /members
   def index
@@ -13,8 +12,10 @@ class MembersController < ApplicationController
 
   # GET /members/1
   def show
+    # byebug
     render json: @member, except: [:password_digest, :created_at, :updated_at],
-    include: [:hosting_events, :received_invitations]
+    # include: [:hosting_events => {except: [:host_id, :created_at, :updated_at]}]
+    include: [:received_invitations => {include: [:event => {include: [:host => {except: [:password_digest, :created_at, :updated_at]}]}]}]
   end
 
   # POST /members
@@ -47,11 +48,12 @@ class MembersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_member
-      @member = Member.find(params[:id])
+      @member = Member.find_by(id: params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def member_params
+      # byebug
       params.require(:member).permit(
         :first_name, 
         :last_name, 
