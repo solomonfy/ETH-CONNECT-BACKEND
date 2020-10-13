@@ -14,26 +14,36 @@ Member.destroy_all
 # Review.destroy_all
 
 
+profile_images = [
+"https://cdn1.vectorstock.com/i/1000x1000/87/85/cartoon-funny-bear-vector-16998785.jpg",
+"https://cdn3.vectorstock.com/i/1000x1000/94/97/funny-bear-cartoon-vector-16309497.jpg",
+"https://image.freepik.com/free-vector/cute-little-dog-cartoon-isolated-white_143596-3.jpg",
+"https://assetsds.cdnedge.bluemix.net/sites/default/files/styles/very_big_1/public/feature/images/cat_23.jpg?itok=nvtzx9Xx",
+"https://cbsnews2.cbsistatic.com/hub/i/r/2010/12/03/79ed9c0e-a644-11e2-a3f0-029118418759/thumbnail/1200x630/cfe704cb9840686e553d1ae1197d1466/365073.jpg",
+"https://i.pinimg.com/originals/f9/c2/66/f9c26616722f0b5ae43b87acc3a5ee1d.png",
+"https://webstockreview.net/images/birds-clipart-animated-7.png"
+]
+
 sol = Member.create(
     first_name: "Solomon", 
-    last_name: "Sol", 
+    last_name: "Y", 
     username: "solomon", 
     email: "solomon@email.com", 
     password: "solomon", 
     family_size: 4,
-    image: "",
-    address: ""
+    image: "https://images-na.ssl-images-amazon.com/images/I/41r0oAaPp0L._AC_.jpg",
+    address: Faker::Address.full_address
 )
 
 bk = Member.create(
-    first_name: "Bk", 
+    first_name: "Bek", 
     last_name: "T", 
-    username: "bk", 
+    username: "bek", 
     email: "bk@email.com", 
-    password: "bk", 
+    password: "bek", 
     family_size: 5,
-    image: "",
-    address: ""
+    image: "https://cdn5.vectorstock.com/i/1000x1000/53/24/profile-icon-male-emotion-avatar-man-cartoon-vector-15175324.jpg",
+    address: Faker::Address.full_address
 )
 
 der = Member.create(
@@ -43,8 +53,8 @@ der = Member.create(
     email: "der@email.com", 
     password: "der", 
     family_size: 5,
-    image: "",
-    address: ""
+    image: "https://pickaface.net/gallery/avatar/20160731_021817_10_testing.png",
+    address: Faker::Address.full_address
 )
 
 
@@ -55,15 +65,15 @@ der = Member.create(
     username: Faker::Internet.username(specifier: 3...5), 
     email: Faker::Internet.unique.email, 
     password: "test", 
-    family_size: 5,
-    image: "",
-    address: ""
+    family_size: Faker::Number.within(range: 1..5),
+    image: profile_images.sample,
+    address: Faker::Address.full_address
 )
 end
 
 event1 = Event.create(
     host: der,
-    name: "Christmas", date: "", 
+    name: "Christmas", date: '2020-12-20', 
     location: Faker::Address.full_address, 
     event_type: "holyday",
     description: Faker::Lorem.paragraph(sentence_count: 2),
@@ -74,7 +84,7 @@ event1 = Event.create(
 event2 = Event.create(
     host: bk,
     name: "New year", 
-    date: "", 
+    date: '2020-10-23', 
     location: Faker::Address.full_address, 
     event_type: "holyday",
     description: Faker::Lorem.paragraph(sentence_count: 2),
@@ -83,7 +93,7 @@ event2 = Event.create(
 
 event3 = Event.create(
     host: der,
-    name: "Fasika", date: "", 
+    name: "Fasika", date: '2020-11-15', 
     location: Faker::Address.full_address, 
     event_type: "holyday",
     description: Faker::Lorem.paragraph(sentence_count: 2),
