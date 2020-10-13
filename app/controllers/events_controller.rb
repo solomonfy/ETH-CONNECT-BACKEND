@@ -8,13 +8,13 @@ class EventsController < ApplicationController
     def index
       @events = Event.all
 
-      render json: @events, except: [:created_at, :updated_at], include: [:host => {only: [:first_name, :last_name]}]
+      render json: @events, except: [:created_at, :updated_at], include: [:host => {only: [:first_name, :last_name, :id]}]
     end
   
     # GET /events/1
     def show
       # render json: @event, except: [:created_at, :updated_at], include: [:host]
-      render json: @event, except: [:created_at, :updated_at], include: [:host => {only: [:first_name, :last_name]}]
+      render json: @event, except: [:created_at, :updated_at], include: [:host => {only: [:first_name, :last_name, :id]}]
 
     end
   
