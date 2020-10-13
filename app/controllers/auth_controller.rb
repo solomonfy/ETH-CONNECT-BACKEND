@@ -15,6 +15,7 @@ class AuthController < ApplicationController
         
 
             render json: {id: member.id, 
+                username: member.username,
                 image: member.image, 
                 email: member.email, 
                 first_name: member.first_name, 
