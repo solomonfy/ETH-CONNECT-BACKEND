@@ -7,12 +7,15 @@ class InvitationsController < ApplicationController
     def index
       @invitations = Invitation.all
 
-      render json: @invitations, except: [:created_at, :updated_at], include: [:event => {include: [:host => {except: [:password_digest, :created_at, :updated_at]}]}]
+      render json: @invitations, except: [:created_at, :updated_at], 
+      include: [:event => {include: [:host => {except: [:password_digest, :created_at, :updated_at]}]}]
     end
   
     # GET /invitations/1
     def show
-      render json: @invitation, except: [:created_at, :updated_at], include: [:event => {include: [:host => {except: [:password_digest, :created_at, :updated_at]}]}]
+      render json: @invitation, 
+      except: [:created_at, :updated_at], 
+      include: [:event => {include: [:host => {except: [:password_digest, :created_at, :updated_at]}]}]
       # render json: @invitation, except: [:created_at, :updated_at]
     end
   

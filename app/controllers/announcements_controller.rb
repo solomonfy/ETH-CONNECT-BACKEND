@@ -1,23 +1,27 @@
 class AnnouncementsController < ApplicationController
   before_action :set_announcement, only: [:show, :update, :destroy]
-  # skip_before_action :logged_in?, only: [:index, :show]
+  skip_before_action :logged_in?, only: [:index, :show]
 
 
   # GET /announcements
   def index
+    # byebug
     @announcements = Announcement.all
-
-    render json: @announcements, include: [:member => {only: [:first_name, :last_name]}]
+    render json: @announcements, include: [:member => {only: [:first_name, :last_name, :id]}]
   end
 
   # GET /announcements/1
   def show
-    render json: @announcement, include: [:member => {only: [:first_name, :last_name]}]
+    render json: @announcement, include: [:member => {only: [:first_name, :last_name, :id]}]
   end
 
   # POST /announcements
   def create
-    @announcement = Announcement.new(announcement_params)
+    # byebug
+    @announcement = Announcement.new(
+      description: params[:announcement][:description],
+      member_id: @member.id
+    )
 
     if @announcement.save
       render json: @announcement, status: :created, location: @announcement
