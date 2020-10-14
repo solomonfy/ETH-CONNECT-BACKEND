@@ -12,7 +12,7 @@ class Member < ApplicationRecord
 
 
     # has_many :attendee_reviews, foreign_key: :attendee_id, class_name: "Review"
-    # has_many :announcements
+    has_many :announcements
 
     def full_name
         self.first_name + " " + self.last_name

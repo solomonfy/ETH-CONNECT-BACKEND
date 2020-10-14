@@ -1,18 +1,18 @@
 class AnnouncementsController < ApplicationController
   before_action :set_announcement, only: [:show, :update, :destroy]
-  skip_before_action :logged_in?, only: [:index, :show]
+  # skip_before_action :logged_in?, only: [:index, :show]
 
 
   # GET /announcements
   def index
     @announcements = Announcement.all
 
-    render json: @announcements
+    render json: @announcements, include: [:member => {only: [:first_name, :last_name]}]
   end
 
   # GET /announcements/1
   def show
-    render json: @announcement
+    render json: @announcement, include: [:member => {only: [:first_name, :last_name]}]
   end
 
   # POST /announcements
