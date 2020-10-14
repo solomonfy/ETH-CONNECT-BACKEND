@@ -7,7 +7,7 @@ class Member < ApplicationRecord
     validates :username, uniqueness: { case_sensitive: false }
 
 
-    has_many :hosting_events, foreign_key: :host_id, class_name: "Event"
+    has_many :hosting_events, foreign_key: :host_id, class_name: "Event", dependent: :destroy
     has_many :received_invitations, foreign_key: :attendee_id, class_name: "Invitation"
 
 
