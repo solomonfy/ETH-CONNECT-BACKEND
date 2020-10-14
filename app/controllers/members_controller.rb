@@ -1,8 +1,8 @@
 class MembersController < ApplicationController
     before_action :set_member, only: [:show, :update, :destroy]
     wrap_parameters :member, include: [:first_name, :last_name, :username, :email, :password, :image, :family_size, :address]
-    skip_before_action :logged_in?, only: [:index, :show, :create]
-    # skip_before_action :logged_in?, only: [:create]
+    # skip_before_action :logged_in?, only: [:index, :show, :create]
+    skip_before_action :logged_in?, only: [:create]
 
   # GET /members
   def index
@@ -15,7 +15,8 @@ class MembersController < ApplicationController
     # byebug
     render json: @member, except: [:password_digest, :created_at, :updated_at],
     # include: [:hosting_events => {except: [:host_id, :created_at, :updated_at]}]
-    include: [:received_invitations => {include: [:event => {include: [:host => {except: [:password_digest, :created_at, :updated_at]}]}]}]
+    include: [:received_invitations => {include: [:event => {include: [:host => {except: [:password_digest, :created_at, :updated_at]}]}]}],
+    include: [:announcements => {include: [:member => {only: [:first_name, :last_name]}]}]
   end
 
   # POST /members
