@@ -23,7 +23,8 @@ class MembersController < ApplicationController
     # byebug
     member = Member.new(member_params)
 
-    if member.save
+    if member.valid?
+      member.save
       render json: member, status: :created, location: member
     else
       render json: member.errors, status: :unprocessable_entity
