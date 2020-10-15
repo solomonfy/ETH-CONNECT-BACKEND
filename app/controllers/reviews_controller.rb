@@ -17,8 +17,12 @@ class ReviewsController < ApplicationController
 
   # POST /reviews
   def create
-    @review = Review.new(review_params)
-
+    # byebug
+    @review = Review.new(
+      description: params[:announcement][:description],
+      event_id: params[:announcement][:event_id],
+      attendee_id: @member.id
+    )
     if @review.save
       render json: @review, status: :created, location: @review
     else
