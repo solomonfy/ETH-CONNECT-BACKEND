@@ -19,8 +19,8 @@ class ReviewsController < ApplicationController
   def create
     # byebug
     @review = Review.new(
-      description: params[:announcement][:description],
-      event_id: params[:announcement][:event_id],
+      description: params[:review][:description],
+      event_id: params[:review][:event_id],
       attendee_id: @member.id
     )
     if @review.save
