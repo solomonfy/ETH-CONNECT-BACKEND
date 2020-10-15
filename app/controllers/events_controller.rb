@@ -1,20 +1,25 @@
 class EventsController < ApplicationController
 
     before_action :set_event, only: [:show, :update, :destroy]
-    # skip_before_action :logged_in?, only: [:index, :show]
+    skip_before_action :logged_in?, only: [:index, :show]
 
 
     # GET /events
     def index
       @events = Event.all
 
-      render json: @events, except: [:created_at, :updated_at], include: [:host => {only: [:first_name, :last_name, :id]}]
+      render json: @events, 
+      except: [:created_at, :updated_at], 
+      include: [:reviews, :host => {only: [:first_name, :last_name, :id]}]
+
     end
   
     # GET /events/1
     def show
       # render json: @event, except: [:created_at, :updated_at], include: [:host]
-      render json: @event, except: [:created_at, :updated_at], include: [:host => {only: [:first_name, :last_name, :id]}]
+      render json: @event, 
+      except: [:created_at, :updated_at], 
+      include: [:reviews, :host => {only: [:first_name, :last_name, :id]}]
 
     end
   

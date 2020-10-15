@@ -11,7 +11,7 @@ class Member < ApplicationRecord
     has_many :received_invitations, foreign_key: :attendee_id, class_name: "Invitation"
 
 
-    # has_many :attendee_reviews, foreign_key: :attendee_id, class_name: "Review"
+    has_many :attendee_reviews, foreign_key: :attendee_id, class_name: "Review"
     has_many :announcements
 
     def full_name
