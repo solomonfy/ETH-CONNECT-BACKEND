@@ -35,15 +35,28 @@ class MembersController < ApplicationController
 
   # PATCH/PUT /members/1
   def update
-    if @member.update(member_params)
+    # byebug
+    # if @member.valid?
+      @member.update(
+        first_name: params[:member][:first_name], 
+        last_name: params[:member][:last_name], 
+        username: params[:member][:username], 
+        email: params[:member][:email], 
+        # image: params[:member][:image], 
+        # family_size: params[:member][:family_size], 
+        address: params[:member][:address]
+
+      )
       render json: @member
-    else
-      render json: @member.errors, status: :unprocessable_entity
-    end
+    # else
+    #   render json: @member.errors, status: :unprocessable_entity
+    # end
   end
 
   # DELETE /members/1
   def destroy
+    member_events = @member.hosting_events
+    member_invitations = @member. received_invitations
     @member.destroy
   end
 
