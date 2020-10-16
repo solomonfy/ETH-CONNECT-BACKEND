@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_10_07_180636) do
     t.date "date"
     t.string "location"
     t.string "event_type"
+    t.string "event_card"
     t.text "summary"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -37,6 +38,8 @@ ActiveRecord::Schema.define(version: 2020_10_07_180636) do
   create_table "invitations", force: :cascade do |t|
     t.integer "attendee_id"
     t.integer "event_id"
+    t.string "message"
+    t.string "card"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -50,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_10_07_180636) do
     t.string "image"
     t.integer "family_size"
     t.string "address"
+    t.boolean "active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -7,6 +7,7 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.date :date
       t.string :location
       t.string :event_type
+      t.string :event_card
       t.text :summary
 
       t.timestamps

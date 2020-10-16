@@ -9,6 +9,7 @@ class CreateMembers < ActiveRecord::Migration[6.0]
       t.string :image
       t.integer :family_size
       t.string :address
+      t.boolean :active, default: true
 
       t.timestamps
     end
