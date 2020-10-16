@@ -139,7 +139,7 @@ end
     Review.create(
         description: Faker::Lorem.paragraph(sentence_count: 5), 
         event: Event.all.sample, 
-        attendee_id: Member.all.sample,
+        attendee_id: Invitation.all.sample.attendee,
         likes: Faker::Number.within(range: 1..10))
 end
 

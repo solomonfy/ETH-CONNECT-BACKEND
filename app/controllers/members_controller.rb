@@ -1,8 +1,7 @@
 class MembersController < ApplicationController
     before_action :set_member, only: [:show, :update, :destroy]
     wrap_parameters :member, include: [:first_name, :last_name, :username, :email, :password, :image, :family_size, :address]
-    skip_before_action :logged_in?, only: [:index, :show, :create]
-    skip_before_action :logged_in?, only: [:create]
+    # skip_before_action :logged_in?, only: [:index, :show, :create]
 
   # GET /members
   def index
@@ -46,6 +45,7 @@ class MembersController < ApplicationController
         # image: params[:member][:image], 
         # family_size: params[:member][:family_size], 
         address: params[:member][:address]
+        # active: params[:member][:actions]
 
       )
       render json: @member, except: [:password_digest]
