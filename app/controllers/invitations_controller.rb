@@ -24,6 +24,8 @@ class InvitationsController < ApplicationController
       # @invitation = Invitation.new(invitation_params)
       @invitation = Invitation.new(
         attendee_id: params[:invitation][:attendee_id],
+        card: params[:invitation][:card],
+        message: params[:invitation][:message],
         event_id: params[:invitation][:event_id]
       )
   
