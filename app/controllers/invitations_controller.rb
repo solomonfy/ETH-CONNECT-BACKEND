@@ -29,7 +29,8 @@ class InvitationsController < ApplicationController
         event_id: params[:invitation][:event_id]
       )
   
-      if @invitation.save
+      if @invitation.valid?
+        invitation.save
         render json: @invitation, status: :created, location: @invitation
       else
         render json: @invitation.errors, status: :unprocessable_entity

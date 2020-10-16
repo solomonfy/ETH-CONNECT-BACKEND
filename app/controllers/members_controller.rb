@@ -57,7 +57,7 @@ class MembersController < ApplicationController
   # DELETE /members/1
   def destroy
     member_events = @member.hosting_events
-    member_invitations = @member. received_invitations
+    member_invitations = @member.received_invitations
     @member.destroy
   end
 
