@@ -7,7 +7,7 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.date :date
       t.string :location
       t.string :event_type
-      t.string :event_card
+      t.string :event_card, default: 'https://ae01.alicdn.com/kf/HTB1afUPqHZnBKNjSZFrq6yRLFXar/100pcs-Exquisite-Invitation-Card-18th-Birthday-Party-Decorations-Greeting-Blessing-Card-Gift-Card-Party-Supplies.jpg_q50.jpg'
       t.text :summary
 
       t.timestamps

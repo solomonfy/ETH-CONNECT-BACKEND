@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_10_07_180636) do
     t.date "date"
     t.string "location"
     t.string "event_type"
-    t.string "event_card"
+    t.string "event_card", default: "https://ae01.alicdn.com/kf/HTB1afUPqHZnBKNjSZFrq6yRLFXar/100pcs-Exquisite-Invitation-Card-18th-Birthday-Party-Decorations-Greeting-Blessing-Card-Gift-Card-Party-Supplies.jpg_q50.jpg"
     t.text "summary"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_10_07_180636) do
     t.integer "attendee_id"
     t.integer "event_id"
     t.string "message"
-    t.string "card"
+    t.string "card", default: "https://cdn.cnn.com/cnnnext/dam/assets/190205150343-kitfo-full-169.jpg"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

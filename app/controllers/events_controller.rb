@@ -32,6 +32,7 @@ class EventsController < ApplicationController
         location: params[:event][:location], 
         date: params[:event][:date], 
         event_type: params[:event][:event_type], 
+        event_card: params[:event][:event_card], 
         summary: params[:event][:summary], 
         host_id: @member.id
       )
