@@ -26,7 +26,8 @@ class MembersController < ApplicationController
 
     if member.valid?
       member.save
-      render json: member, status: :created, location: member
+      render json: member, except: [:password_digest, :created_at, :updated_at],
+      status: :created, location: member
     else
       render json: member.errors, status: :unprocessable_entity
     end
@@ -47,7 +48,7 @@ class MembersController < ApplicationController
         address: params[:member][:address]
 
       )
-      render json: @member
+      render json: @member, except: [:password_digest]
     # else
     #   render json: @member.errors, status: :unprocessable_entity
     # end

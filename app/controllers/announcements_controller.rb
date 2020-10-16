@@ -23,8 +23,11 @@ class AnnouncementsController < ApplicationController
       member_id: @member.id
     )
 
-    if @announcement.save
-      render json: @announcement, status: :created, location: @announcement
+    if @announcement.valid? 
+      @announcement.save
+      render json: @announcement, 
+      include: [:member => {except: [:password_digest]}],
+      status: :created, location: @announcement
     else
       render json: @announcement.errors, status: :unprocessable_entity
     end

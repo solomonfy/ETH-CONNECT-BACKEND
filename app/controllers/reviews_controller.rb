@@ -23,7 +23,8 @@ class ReviewsController < ApplicationController
       event_id: params[:review][:event_id],
       attendee_id: @member.id
     )
-    if @review.save
+    if @review.valid? 
+      @review.save
       render json: @review, status: :created, location: @review
     else
       render json: @review.errors, status: :unprocessable_entity

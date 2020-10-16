@@ -37,8 +37,12 @@ class EventsController < ApplicationController
         host_id: @member.id
       )
   
-      if @event.save
-        render json: @event, status: :created, location: @event
+      if @event.valid?
+        @event.save
+        render json: @event, 
+        # except: [:created_at, :updated_at], 
+        include: [:host => {except: [:password_digest]}],
+        status: :created, location: @event
       else
         render json: @event.errors, status: :unprocessable_entity
       end
