@@ -10,7 +10,8 @@ class EventsController < ApplicationController
 
       render json: @events, 
       except: [:created_at, :updated_at], 
-      include: [:reviews, :host => {only: [:first_name, :last_name, :id]}]
+      include: [:reviews => {include: [:attendee => {only: [:first_name, :last_name]}]}, 
+      :host => {only: [:first_name, :last_name, :id]}]
 
     end
   
@@ -19,7 +20,7 @@ class EventsController < ApplicationController
       # render json: @event, except: [:created_at, :updated_at], include: [:host]
       render json: @event, 
       except: [:created_at, :updated_at], 
-      include: [:reviews, :host => {only: [:first_name, :last_name, :id]}]
+      include: [:reviews => {include: [:attendee => {only: [:first_name, :last_name]}]}]
 
     end
   
