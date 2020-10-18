@@ -43,8 +43,8 @@ class MembersController < ApplicationController
         last_name: params[:member][:last_name], 
         username: params[:member][:username], 
         email: params[:member][:email], 
-        # image: params[:member][:image], 
-        # family_size: params[:member][:family_size], 
+        image: params[:member][:image], 
+        family_size: params[:member][:family_size], 
         address: params[:member][:address]
 
       )

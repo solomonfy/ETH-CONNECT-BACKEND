@@ -1,18 +1,18 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :update, :destroy]
-  # skip_before_action :logged_in?, only: [:index, :show]
+  skip_before_action :logged_in?, only: [:index, :show]
 
 
   # GET /reviews
   def index
     @reviews = Review.all
-
-    render json: @reviews
+    render json: @reviews, include: [:attendee => {only: [:first_name, :last_name]}]
   end
 
   # GET /reviews/1
   def show
-    render json: @review
+    render json: @review, include: [:attendee => {only: [:first_name, :last_name]}]
+
   end
 
   # POST /reviews
