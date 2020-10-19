@@ -12,10 +12,6 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   def show
     render json: @review, include: [:attendee => {only: [:first_name, :last_name]}]
-<<<<<<< HEAD
-=======
-
->>>>>>> master
   end
 
   # POST /reviews

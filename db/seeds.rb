@@ -12,6 +12,7 @@ Event.destroy_all
 Invitation.destroy_all
 Member.destroy_all
 Review.destroy_all
+Photo.destroy_all
 
 
 profile_images = [
@@ -143,4 +144,18 @@ end
         likes: Faker::Number.within(range: 1..10))
 end
 
+image_url = [
+    "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
+    "https://source.unsplash.com/Dm-qxdynoEc/800x799",
+    "https://source.unsplash.com/qDkso9nvCg0/600x799",
+    "https://source.unsplash.com/iecJiKe_RNg/600x799",
+    "https://source.unsplash.com/epcsn8Ed8kY/600x799",
+    "https://source.unsplash.com/NQSWvyVRIJk/800x599",
+    "https://source.unsplash.com/zh7GEuORbUw/600x799",
+    "https://source.unsplash.com/PpOHJezOalU/800x599",
+    "https://source.unsplash.com/I1ASdgphUH4/800x599"
+]
 
+20.times do
+    Photo.create(src: image_url.sample, event_id: Event.all.sample.id, member_id: Member.all.sample.id)
+end

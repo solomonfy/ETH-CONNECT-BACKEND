@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
     
-
+    has_many :photos
     has_many :reviews
     has_many :invitations
     has_many :attendees, foreign_key: :attendee_id, class_name: "Member", through: :invitations
