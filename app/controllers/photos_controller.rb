@@ -15,6 +15,7 @@ class PhotosController < ApplicationController
 
   # POST /photos
   def create
+    byebug
     @photo = Photo.new(photo_params)
 
     if @photo.save
