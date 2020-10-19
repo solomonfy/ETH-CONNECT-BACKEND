@@ -51,6 +51,7 @@ class EventsController < ApplicationController
   
     # PATCH/PUT /events/1
     def update
+      # byebug
       if @event.update(event_params)
         render json: @event
       else
@@ -71,7 +72,7 @@ class EventsController < ApplicationController
   
       # Only allow a trusted parameter "white list" through.
       def event_params
-        params.require(:event).permit(:host_id, :name, :description, :date, :location, :event_type, :summary)
+        params.require(:event).permit(:host_id, :name, :description, :date, :location, :event_type, :summary, :event_card)
       end
 end
 
