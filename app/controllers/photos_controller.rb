@@ -1,16 +1,18 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :update, :destroy]
+  skip_before_action :logged_in?, only: [:index, :show]
+
 
   # GET /photos
   def index
     @photos = Photo.all
 
-    render json: @photos
+    render json: @photos, include: [:event => {only: [:name]}]
   end
 
   # GET /photos/1
   def show
-    render json: @photo
+    render json: @photo, include: [:event => {only: [:name]}]
   end
 
   # POST /photos
