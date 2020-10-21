@@ -145,15 +145,15 @@ end
 end
 
 image_url = [
-    "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
-    "https://source.unsplash.com/Dm-qxdynoEc/800x799",
-    "https://source.unsplash.com/qDkso9nvCg0/600x799",
-    "https://source.unsplash.com/iecJiKe_RNg/600x799",
-    "https://source.unsplash.com/epcsn8Ed8kY/600x799",
+    "https://www.linkethiopia.org/wp-content/uploads/2018/06/Great-Ethiopian-Run-e1528889471925.jpg",
+    "https://i.pinimg.com/originals/fd/7d/3a/fd7d3adb726b2149107aebaa10f76a00.jpg",
+    "https://cdn.theculturetrip.com/wp-content/uploads/2018/04/8215920137_cd5ec70b9f_o.jpg",
+    "https://i.dailymail.co.uk/i/pix/2015/07/14/12/2A85810900000578-3160651-image-a-32_1436873755835.jpg",
+    "https://i.pinimg.com/originals/7c/cf/45/7ccf45705c5f4f49dc06e9a3bfd8043f.jpg",
     "https://source.unsplash.com/NQSWvyVRIJk/800x599",
     "https://source.unsplash.com/zh7GEuORbUw/600x799",
-    "https://source.unsplash.com/PpOHJezOalU/800x599",
-    "https://source.unsplash.com/I1ASdgphUH4/800x599"
+    "https://spatialdrift.com/wp-content/uploads/2014/09/2014-08-27-19.56.33.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58428f3c8419c26ae085219d/1561905244321-ZVA0YH3JM5QVRMFFWZQE/ke17ZwdGBToddI8pDm48kDk1dm1oSR9gCa1mX4KqzjN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0luj0xCD0oh5KMc0gpox0u-wQWxfQHg04OxgQwaUq2yiAcNt5Kg2tE9yEtYfM4xwaw/race+start-min.JPG"
 ]
 
 9.times do
