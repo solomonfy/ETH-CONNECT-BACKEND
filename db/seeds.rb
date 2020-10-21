@@ -129,7 +129,7 @@ Invitation.create(attendee: Member.second, message: Faker::Lorem.paragraph(sente
 Invitation.create(attendee: Member.third, message: Faker::Lorem.paragraph(sentence_count: 1), event: event4, card: "")
 
 
-10.times do
+4.times do
     Announcement.create(
         description: Faker::Lorem.paragraph(sentence_count: 3), 
         member: Member.all.sample)
@@ -156,6 +156,6 @@ image_url = [
     "https://source.unsplash.com/I1ASdgphUH4/800x599"
 ]
 
-20.times do
-    Photo.create(src: image_url.sample, event_id: Event.all.sample.id, member_id: Member.all.sample.id)
+9.times do
+    Photo.create(src: image_url.sample, event: Event.all.sample, member: Member.all.sample)
 end

@@ -5,7 +5,6 @@ class AnnouncementsController < ApplicationController
 
   # GET /announcements
   def index
-    # byebug
     @announcements = Announcement.all
     render json: @announcements, include: [:member => {only: [:first_name, :last_name, :id]}]
   end
@@ -17,7 +16,6 @@ class AnnouncementsController < ApplicationController
 
   # POST /announcements
   def create
-    # byebug
     @announcement = Announcement.new(
       description: params[:announcement][:description],
       member_id: @member.id

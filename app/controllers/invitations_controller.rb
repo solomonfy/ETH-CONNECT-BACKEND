@@ -21,7 +21,7 @@ class InvitationsController < ApplicationController
   
     # POST /invitations
     def create
-      byebug
+      # byebug
       # @invitation = Invitation.new(invitation_params)
       @invitation = Invitation.new(
         attendee_id: params[:invitation][:attendee_id],

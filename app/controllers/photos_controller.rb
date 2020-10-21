@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :update, :destroy]
-  skip_before_action :logged_in?, only: [:index, :show]
+  # skip_before_action :logged_in?, only: [:index, :show]
 
 
   # GET /photos
