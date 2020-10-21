@@ -17,9 +17,11 @@ class PhotosController < ApplicationController
 
   # POST /photos
   def create
+    # byebug
     @photo = Photo.new(photo_params)
 
-    if @photo.save
+    if @photo.valid?
+    @photo.save
       render json: @photo, status: :created, location: @photo
     else
       render json: @photo.errors, status: :unprocessable_entity
