@@ -21,6 +21,7 @@ class InvitationsController < ApplicationController
   
     # POST /invitations
     def create
+      byebug
       # @invitation = Invitation.new(invitation_params)
       @invitation = Invitation.new(
         attendee_id: params[:invitation][:attendee_id],
@@ -30,7 +31,7 @@ class InvitationsController < ApplicationController
       )
   
       if @invitation.valid?
-        invitation.save
+        @invitation.save
         render json: @invitation, status: :created, location: @invitation
       else
         render json: @invitation.errors, status: :unprocessable_entity
