@@ -61,6 +61,8 @@ class EventsController < ApplicationController
   
     # DELETE /events/1
     def destroy
+      all_invitations = @event.invitations
+      all_invitations.destroy
       @event.destroy
     end
   
