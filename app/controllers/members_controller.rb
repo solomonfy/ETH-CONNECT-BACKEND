@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
     before_action :set_member, only: [:show, :update, :destroy]
     wrap_parameters :member, include: [:first_name, :last_name, :username, :email, :password, :image, :family_size, :address]
-    skip_before_action :logged_in?, only: [:create]
+    # skip_before_action :logged_in?, only: [:create]
 
   # GET /members
   def index
